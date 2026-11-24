@@ -1,0 +1,17 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "OpnChallenge.notSpecial_of_prime",
+    "OpnChallenge.no_odd_perfect_equal_exponents_all_primes_le_73",
+    "OpnChallenge.perfect_six",
+    "OpnChallenge.equalExponents_3_2205",
+    "OpnChallenge.equalExponents_19_1937102445"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

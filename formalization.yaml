@@ -1,0 +1,171 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Odd Perfect Numbers: Equal Non-Special Exponents for Every Odd Prime 3 <= r <= 73"
+  description: >-
+    Unconditional Lean 4 + Mathlib formalization proving that no odd perfect
+    number N = pi^alpha * q_1^(r-1) * ... * q_t^(r-1) has every non-special
+    prime raised to the same exponent r - 1 for any odd prime 3 <= r <= 73
+    (all 20 odd primes, 1 <= beta <= 36 where r = 2*beta + 1), together with
+    Kanold's theorem (notSpecial_of_prime) that r cannot be the special prime
+    for any odd prime r >= 3. Independently proves the 9 classical prime cases
+    in this range and settles all 11 remaining prime cases through r = 73
+    (including beta = 9, 15, 20, 21, 23 left open by Cohen and Williams 1985,
+    plus r = 53, 59, 61, 67, 71, 73). Companion write-up, additional larger
+    certificates through r = 167 (not packaged in this single repository due to
+    certificate size), and dated literature search logs are published at
+    https://mathdiscoveries.org/results/odd-perfect-equal-exponents.
+  authors:
+    - "Tyler B. Hughes"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Tyler B. Hughes"
+
+classification:
+  arxiv: ["math.NT"]
+  msc2020: ["11A25", "11Y70"]
+
+sources:
+  - title: "Extensions of some results concerning odd perfect numbers"
+    authors:
+      - "Graeme L. Cohen"
+      - "R. J. Williams"
+    id: "https://www.fq.math.ca/Scanned/23-1/cohen.pdf"
+    type: paper
+    location: "Fibonacci Quarterly 23(1) (1985), 70-76"
+    relationship: independently-proves
+    note: >-
+      Excludes beta = 6, 8, 11, 14, 18 (including prime cases r = 13, 17, 23,
+      29, 37 independently proved here), states Kanold's (1941) fact p != r
+      (proved unconditionally for all odd primes r >= 3 in notSpecial_of_prime),
+      and notes beta = 9, 15, 20, 21, 23 (r = 19, 31, 41, 43, 47, all proved
+      here) were attempted without further success.
+  - title: "Some results concerning the non-existence of odd perfect numbers of the form p^alpha M^{2beta}"
+    authors:
+      - "Wayne L. McDaniel"
+      - "Peter Hagis Jr."
+    type: paper
+    location: "Fibonacci Quarterly 13(1) (1975), 25-28"
+    relationship: independently-proves
+    note: >-
+      Excludes beta = 5, 12, 17, 24, 62 (including prime case r = 11
+      independently proved here), following Steuerwald (1937, beta = 1),
+      Kanold (1941, beta = 2), McDaniel (1970, beta = 1 mod 3), and Hagis and
+      McDaniel (1972, beta = 3). Kanold (1941) and 1970s articles were
+      consulted through secondary citations.
+  - title: "More on the Nonexistence of Odd Perfect Numbers of a Certain Form"
+    authors:
+      - "Patrick A. Brown"
+    id: "https://arxiv.org/abs/1512.01270"
+    type: paper
+    location: "arXiv:1512.01270 (2015)"
+    relationship: background
+    note: >-
+      Excludes beta = 2 (mod 5) (following Fletcher-Nielsen-Ochem 2012),
+      consulted in the prior-work check alongside Yamada (arXiv:2312.17059) and
+      Gallardo-Rahavandrainy (arXiv:2304.04109).
+  - title: "On a theorem of Kanold on odd perfect numbers"
+    authors:
+      - "Tomohiro Yamada"
+    id: "https://arxiv.org/abs/2312.17059"
+    type: paper
+    location: "arXiv:2312.17059 (2023)"
+    relationship: background
+    note: >-
+      Recent survey/paper on equal-exponent odd perfect numbers consulted in
+      the prior-work check summarizing the previously excluded values of beta.
+  - title: "Odd perfect numbers: the equal-exponent cases through r = 167"
+    authors:
+      - "Tyler B. Hughes"
+    id: "https://mathdiscoveries.org/results/odd-perfect-equal-exponents"
+    type: other
+    location: "Companion page, verification archives, and prior-work search log at https://mathdiscoveries.org/results/odd-perfect-equal-exponents"
+    relationship: other
+    note: >-
+      Certificate search, cyclotomic soundness engine, Kanold proof, and Lean 4
+      formalization produced by AI research agents built and directed by
+      Tyler B. Hughes. Dated prior-work searches (OpenAlex, Semantic Scholar,
+      arXiv, zbMATH Open, Crossref, HAL, OEIS, GitHub, Zenodo, Stack Exchange,
+      and Google Scholar through 2026-11-22) did not find prior proofs of the
+      11 prime cases r = 19, 31, 41, 43, 47, 53, 59, 61, 67, 71, 73; Kanold
+      (1941) and paywalled 1970s originals were read only via later citations.
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Unconditionally proved in Lean 4 + Mathlib with standard axioms only (zero
+    sorry, zero native_decide): notSpecial_of_prime for every odd prime r >= 3,
+    no_odd_perfect_equal_exponents_all_primes_le_73 covering all 20 odd primes
+    3 <= r <= 73 (every beta <= 36 with 2*beta + 1 prime), and non-vacuity
+    checks (perfect_six, equalExponents_3_2205, equalExponents_19_1937102445).
+    Larger prime cases 79 <= r <= 167 are not included in this repository to
+    keep certificate size tractable for single-run multi-kernel verification.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Quot.sound", "Classical.choice"]
+
+automation:
+  methods:
+    - method: agent
+      models: []
+      framework: "AI research agent pipeline built and directed by Tyler B. Hughes"
+      tool_setup: >-
+        Autonomous builder, adversarial falsifier, and reviewer agents searched
+        cyclotomic contradiction certificates, formalized the soundness engine
+        and Kanold's theorem in Lean 4 + Mathlib, and verified every case in
+        the kernel.
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "local machine"
+      prompting_notes: "Goal-directed mathematical discovery and Lean 4 formalization."
+  spend_usd: "not tracked"
+  notes: >-
+    All certificates, Lean 4 proofs, and internal adversarial reviews were
+    produced by AI research agents built and directed by Tyler B. Hughes. No
+    human mathematician has yet refereed the proof.
+
+fidelity:
+  divergences: ""
+
+review:
+  status: agent-reviewed
+  reviewers:
+    - "Internal adversarial falsifier and reviewer agents"
+  notes: >-
+    Checked by separate internal falsifier and reviewer agents and audited for
+    standard axioms only via Opn/Verify.lean. Not yet refereed by a human
+    mathematician.
+
+alignment:
+  namespace: "OpnChallenge"
+  statements:
+    - source: "Kanold's theorem: odd prime r >= 3 cannot be the special prime"
+      lean: "OpnChallenge.notSpecial_of_prime"
+      module: "Challenge"
+      status: proved
+      note: "Proved unconditionally for every odd prime r >= 3."
+    - source: "No equal-exponent odd perfect number for any odd prime 3 <= r <= 73"
+      lean: "OpnChallenge.no_odd_perfect_equal_exponents_all_primes_le_73"
+      module: "Challenge"
+      status: proved
+      note: "Covers all 20 odd primes through r = 73 (including beta = 9, 15, 20, 21, 23, 26, 29, 30, 33, 35, 36)."
+    - source: "Non-vacuity: 6 is perfect"
+      lean: "OpnChallenge.perfect_six"
+      module: "Challenge"
+      status: proved
+      note: "Confirms Nat.Perfect is non-vacuous."
+    - source: "Non-vacuity: EqualExponents 3 2205"
+      lean: "OpnChallenge.equalExponents_3_2205"
+      module: "Challenge"
+      status: proved
+      note: "Confirms EqualExponents 3 is non-vacuous."
+    - source: "Non-vacuity: EqualExponents 19 1937102445"
+      lean: "OpnChallenge.equalExponents_19_1937102445"
+      module: "Challenge"
+      status: proved
+      note: "Confirms EqualExponents 19 is non-vacuous."
+
+acknowledgements: "Built on Lean 4 and Mathlib."
