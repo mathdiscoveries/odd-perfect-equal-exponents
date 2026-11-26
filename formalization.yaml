@@ -8,11 +8,14 @@ project:
     number N = pi^alpha * q_1^(r-1) * ... * q_t^(r-1) has every non-special
     prime raised to the same exponent r - 1 for any odd prime 3 <= r <= 73
     (all 20 odd primes, 1 <= beta <= 36 where r = 2*beta + 1), together with
-    Kanold's theorem (notSpecial_of_prime) that r cannot be the special prime
-    for any odd prime r >= 3. Independently proves the 9 classical prime cases
-    in this range and settles all 11 remaining prime cases through r = 73
-    (including beta = 9, 15, 20, 21, 23 left open by Cohen and Williams 1985,
-    plus r = 53, 59, 61, 67, 71, 73). Companion write-up, additional larger
+    Theorem 1 of the companion paper (notSpecial_of_prime, implied by Kanold's
+    1941 congruence) that r cannot be the special prime for any odd prime
+    r >= 3. Formalizes the companion paper's proof (Theorem 2, cases
+    r <= 73), which gives second proofs of the 9 prime cases in this range
+    excluded in earlier work and treats the 11 other prime cases through
+    r = 73 (including beta = 9, 15, 20, 21, 23, attempted without success by
+    Cohen and Williams 1985, plus r = 53, 59, 61, 67, 71, 73). Companion
+    write-up, additional larger
     certificates through r = 167 (not packaged in this single repository due to
     certificate size), and dated literature search logs are published at
     https://mathdiscoveries.org/results/odd-perfect-equal-exponents.
@@ -39,8 +42,8 @@ sources:
       Excludes beta = 6, 8, 11, 14, 18 (including prime cases r = 13, 17, 23,
       29, 37 independently proved here), states Kanold's (1941) fact p != r
       (proved unconditionally for all odd primes r >= 3 in notSpecial_of_prime),
-      and notes beta = 9, 15, 20, 21, 23 (r = 19, 31, 41, 43, 47, all proved
-      here) were attempted without further success.
+      and describes unsuccessful attempts at beta = 9, 15, 20, 21, 23
+      (r = 19, 31, 41, 43, 47, treated in Theorem 2 of the companion paper).
   - title: "Some results concerning the non-existence of odd perfect numbers of the form p^alpha M^{2beta}"
     authors:
       - "Wayne L. McDaniel"
@@ -52,8 +55,8 @@ sources:
       Excludes beta = 5, 12, 17, 24, 62 (including prime case r = 11
       independently proved here), following Steuerwald (1937, beta = 1),
       Kanold (1941, beta = 2), McDaniel (1970, beta = 1 mod 3), and Hagis and
-      McDaniel (1972, beta = 3). Kanold (1941) and 1970s articles were
-      consulted through secondary citations.
+      McDaniel (1972, beta = 3). The companion paper reports reading it in
+      full; McDaniel (1970) is unread [to check].
   - title: "More on the Nonexistence of Odd Perfect Numbers of a Certain Form"
     authors:
       - "Patrick A. Brown"
@@ -73,23 +76,67 @@ sources:
     location: "arXiv:2312.17059 (2023)"
     relationship: background
     note: >-
-      Recent survey/paper on equal-exponent odd perfect numbers consulted in
-      the prior-work check summarizing the previously excluded values of beta.
-  - title: "Odd perfect numbers: the equal-exponent cases through r = 167"
+      Improves Kanold's fourth-power divisibility to t^5 | N for a common
+      divisor t of all 2 beta_i + 1 (Theorem 1); published in Indian J. Pure
+      Appl. Math. 56 (2025), 1278-1284.
+  - title: "Untersuchungen über ungerade vollkommene Zahlen"
+    authors:
+      - "Hans-Joachim Kanold"
+    type: paper
+    location: "J. Reine Angew. Math. 183 (1941), 98-109"
+    relationship: independently-proves
+    note: >-
+      Section IV proves the congruence pi = 1 (mod r) for the special prime
+      when every non-special exponent plus one is a positive power of the same
+      prime r, which implies Theorem 1 of the companion paper
+      (notSpecial_of_prime), and excludes the case in which every non-special
+      exponent is 4 (r = 5). Both are proved here independently
+      (notSpecial_of_prime by a congruence for the divisor sum). The companion paper reports reading it
+      in full.
+  - title: "Verschärfung einer notwendigen Bedingung für die Existenz einer ungeraden vollkommenen Zahl"
+    authors:
+      - "R. Steuerwald"
+    type: paper
+    location: "S.-B. Bayer. Akad. Wiss. (1937), 69-72"
+    relationship: independently-proves
+    note: >-
+      Its condition, that at least one ordinary exponent be at least four,
+      excludes the case r = 3, which is proved here independently. The
+      companion paper reports reading it in full.
+  - title: "A new result concerning the structure of odd perfect numbers"
+    authors:
+      - "Peter Hagis Jr."
+      - "Wayne L. McDaniel"
+    type: paper
+    location: "Proc. Amer. Math. Soc. 32 (1972), 13-15"
+    relationship: independently-proves
+    note: >-
+      Excludes the case in which every non-special exponent is 6 (r = 7),
+      which is proved here independently. The companion paper reports reading
+      it in full.
+  - title: "Odd Perfect Numbers with Equal Non-Special Exponents r - 1: Exclusion Through 167, with Kernel Proofs Through 83"
     authors:
       - "Tyler B. Hughes"
     id: "https://mathdiscoveries.org/results/odd-perfect-equal-exponents"
-    type: other
-    location: "Companion page, verification archives, and prior-work search log at https://mathdiscoveries.org/results/odd-perfect-equal-exponents"
-    relationship: other
+    type: paper
+    location: "https://mathdiscoveries.org/results/odd-perfect-equal-exponents"
+    relationship: formalizes
+    author_endorsement: participated
     note: >-
-      Certificate search, cyclotomic soundness engine, Kanold proof, and Lean 4
-      formalization produced by AI research agents built and directed by
-      Tyler B. Hughes. Dated prior-work searches (OpenAlex, Semantic Scholar,
-      arXiv, zbMATH Open, Crossref, HAL, OEIS, GitHub, Zenodo, Stack Exchange,
-      and Google Scholar through 2026-11-22) did not find prior proofs of the
-      11 prime cases r = 19, 31, 41, 43, 47, 53, 59, 61, 67, 71, 73; Kanold
-      (1941) and paywalled 1970s originals were read only via later citations.
+      The companion paper. It states and proves in writing every compared
+      statement of this package (Theorem 1, Theorem 2 for r <= 73, whose
+      certificates and soundness argument the paper explains and the Lean
+      kernel checks, and the three predicate examples of Section 2), and the
+      Lean work formalizes them; the formalization presents no result that the
+      paper does not. The prime cases r = 3, 5, 7, 11, 13, 17, 23, 29, 37 are
+      printed prior work, listed above; the proofs of them here are second
+      proofs. The paper's cases 79 <= r <= 167 are not in this package. Dated
+      prior-work searches (OpenAlex, Semantic Scholar, arXiv, zbMATH Open,
+      Crossref, HAL, OEIS, GitHub, Zenodo, Stack Exchange, and Google Scholar
+      through 2026-11-22) did not find prior proofs of the 11 prime cases
+      r = 19, 31, 41, 43, 47, 53, 59, 61, 67, 71, 73. AI research agents built
+      and directed by Tyler B. Hughes generated and checked this work. No human
+      mathematician has yet refereed the proof.
 
 related_formalizations: []
 
@@ -142,7 +189,7 @@ review:
 alignment:
   namespace: "OpnChallenge"
   statements:
-    - source: "Kanold's theorem: odd prime r >= 3 cannot be the special prime"
+    - source: "Theorem 1 of the companion paper (implied by Kanold 1941): odd prime r >= 3 cannot be the special prime"
       lean: "OpnChallenge.notSpecial_of_prime"
       module: "Challenge"
       status: proved
