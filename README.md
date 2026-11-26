@@ -14,9 +14,11 @@ other prime cases in this range, among them all five cases
 $\beta \in \{9, 15, 20, 21, 23\}$ ($r \in \{19, 31, 41, 43, 47\}$) that
 Cohen and Williams (1985) attempted without success, as well as
 $r \in \{53, 59, 61, 67, 71, 73\}$. This package formalizes the companion
-paper's proof (its Theorems 1 and 2). Larger
+paper's proof of its Theorem 1 and of its Theorem 2 for $r \le 73$. Larger
 cases ($79 \le r \le 167$) are documented separately at
 https://mathdiscoveries.org/results/odd-perfect-equal-exponents.
+
+Coverage by this package's Palomar comparison: of the companion paper's 3 main results, 1 is compared in Lean in full (33%; Theorem 1) and 1 in part (Theorem 2 for the 20 odd primes $r \le 73$; its cases $r = 79$ and $83$, which the paper reports as checked in its own Lean library, are not in this package); Theorem 3 ($89 \le r \le 167$) is by certificate only. Abstract claims: the same 3 results, with the same split.
 
 ## Build & Verify
 
