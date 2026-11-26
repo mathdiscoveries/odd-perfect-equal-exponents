@@ -18,7 +18,13 @@ project:
     write-up, additional larger
     certificates through r = 167 (not packaged in this single repository due to
     certificate size), and dated literature search logs are published at
-    https://mathdiscoveries.org/results/odd-perfect-equal-exponents.
+    https://mathdiscoveries.org/results/odd-perfect-equal-exponents. Coverage
+    by this package's Palomar comparison: of the companion paper's 3 main
+    results, 1 is compared in Lean in full (33%; Theorem 1) and 1 in part
+    (Theorem 2 for the 20 odd primes r <= 73; its cases r = 79 and 83, which
+    the paper reports as checked in its own Lean library, are not in this
+    package); Theorem 3 (89 <= r <= 167) is by certificate only. Abstract
+    claims: the same 3 results, with the same split.
   authors:
     - "Tyler B. Hughes"
   license: "Apache-2.0"
@@ -161,8 +167,8 @@ automation:
       tool_setup: >-
         Autonomous builder, adversarial falsifier, and reviewer agents searched
         cyclotomic contradiction certificates, formalized the soundness engine
-        and Kanold's theorem in Lean 4 + Mathlib, and verified every case in
-        the kernel.
+        and Kanold's theorem in Lean 4 + Mathlib, and verified every case
+        r <= 73 in the kernel.
       cost:
         wall_time: "not tracked"
         spend_usd: "not tracked"
